@@ -69,11 +69,17 @@ class App extends React.Component {
       <>
         <TitleH1>Phonebook</TitleH1>
         <ContactsForm onSubmit={this.getFormData} />
-        <Filter filterDataToState={this.setFilterToState} />
-        <ContactList
-          contacts={this.contactsFilterData(this.state.contacts)}
-          onDelete={this.deleteContact}
-        />
+
+        {this.state.contacts.length > 1 ? (
+          <Filter filterDataToState={this.setFilterToState} />
+        ) : null}
+
+        {this.state.contacts.length !== 0 ? (
+          <ContactList
+            contacts={this.contactsFilterData(this.state.contacts)}
+            onDelete={this.deleteContact}
+          />
+        ) : null}
       </>
     );
   }

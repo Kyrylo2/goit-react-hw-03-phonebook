@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
+import TextField from '@mui/material/TextField';
+
 const TitleH3 = styled.h2`
   font-size: 14px;
   text-align: center;
@@ -24,8 +26,11 @@ class Filter extends React.Component {
     return (
       <FormStyle>
         <label>
-          <TitleH3>Filter</TitleH3>
-          <input
+          <TextField
+            size="small"
+            id="outlined-basic"
+            label="Filter"
+            variant="outlined"
             type="text"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             onChange={this.setFilterData}
