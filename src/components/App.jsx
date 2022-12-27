@@ -74,7 +74,7 @@ class App extends React.Component {
         </Typography>
         <ContactsForm onSubmit={this.getFormData} />
 
-        {this.state.contacts.length > 1 ? (
+        {this.state.contacts.length > 1 || this.state.filter !== '' ? (
           <Filter filterDataToState={this.setFilterToState} />
         ) : null}
 
