@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import * as yup from 'yup';
 
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const schema = yup.object().shape({
   name: yup.string().required().min(2),
@@ -50,7 +51,16 @@ class ContactsForm extends React.Component {
         validationSchema={schema}
       >
         <FormStyled autoComplete="off" onChange={this.handleStateChange}>
-          <Lable htmlFor="name">Full Name</Lable>
+          <Lable htmlFor="name">
+            <Typography
+              variant="h5"
+              variantMapping={{ h2: 'h5' }}
+              gutterBottom
+              align="center"
+            >
+              Full Name
+            </Typography>
+          </Lable>
           <Field
             id="name"
             name="name"
@@ -59,7 +69,16 @@ class ContactsForm extends React.Component {
             required
           />
           <ErrorMessage name="name" component="div" />
-          <Lable htmlFor="number">Number</Lable>
+          <Lable htmlFor="number">
+            <Typography
+              variant="h5"
+              variantMapping={{ h2: 'h5' }}
+              gutterBottom
+              align="center"
+            >
+              Number
+            </Typography>
+          </Lable>
           <Field
             id="number"
             placeholder="050 442 12 34"

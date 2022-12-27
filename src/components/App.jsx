@@ -2,13 +2,15 @@ import React from 'react';
 import ContactsForm from '../components/Form';
 import Filter from '../components/Filter';
 import ContactList from '../components/ContactsList';
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
 
-const TitleH1 = styled.h2`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-`;
+import Typography from '@mui/material/Typography';
+
+// const TitleH1 = styled.h2`
+//   font-size: 24px;
+//   font-weight: bold;
+//   text-align: center;
+// `;
 
 // import { nanoid } from 'nanoid';
 // model.id = nanoid() //=> "V1StGXR8_Z5jdHi6B-myT"
@@ -49,25 +51,27 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    console.log('component mounted');
-
     const contacts = JSON.parse(localStorage.getItem('contacts'));
     if (contacts) this.setState({ contacts: contacts });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts) {
-      console.log('contacts updated');
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
-
-    console.log('component updated');
   }
 
   render() {
     return (
       <>
-        <TitleH1>Phonebook</TitleH1>
+        <Typography
+          variant="h3"
+          variantMapping={{ h3: 'h1' }}
+          gutterBottom
+          align="center"
+        >
+          Phonebook
+        </Typography>
         <ContactsForm onSubmit={this.getFormData} />
 
         {this.state.contacts.length > 1 ? (

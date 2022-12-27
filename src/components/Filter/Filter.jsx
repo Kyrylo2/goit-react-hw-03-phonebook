@@ -4,11 +4,6 @@ import PropTypes from 'prop-types';
 
 import TextField from '@mui/material/TextField';
 
-const TitleH3 = styled.h2`
-  font-size: 14px;
-  text-align: center;
-`;
-
 const FormStyle = styled.form`
   display: flex;
   gap: 10px;
